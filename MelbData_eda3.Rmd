@@ -609,32 +609,6 @@ train %>%
 
 
 
-
-
-- The vast majority of rides had only a single passenger, with two passengers being the (distant) second most popular option.
-
-
-
-- Towards larger passenger numbers we are seeing a smooth decline through 3 to 4, until the larger crowds (and larger cars) give us another peak at 5 to 6 passengers.
-
-
-
-- Vendor 2 has significantly more trips in this data set than vendor 1 (note the logarithmic y-axis). This is true for every day of the week.
-
-
-
-- We find an interesting pattern with Monday being the quietest day and Friday very busy. This is the same for the two different vendors, with *vendor\_id == 2* showing significantly higher trip numbers.
-
-
-
-- As one would intuitively expect, there is a strong dip during the early morning hours. There we also see not much difference between the two vendors. We find another dip around 4pm and then the numbers increase towards the evening.
-
-
-
-- The *store_and_fwd_flag* values, indicating whether the trip data was sent immediately to the vendor ("N") or held in the memory of the taxi because there was no connection to the server ("Y"), show that there was almost no storing taking place (note again the logarithmic y-axis):
-
-
-
 ```{r}
 
 train %>%
@@ -644,16 +618,6 @@ train %>%
   count()
 
 ```
-
-
-
-These numbers are equivalent to about half a percent of trips not being transmitted immediately.
-
-
-
-
-
-The trip volume per hour of the day depends somewhat on the month and strongly on the day of the week:
 
 
 
@@ -701,24 +665,6 @@ multiplot(p1, p2, layout=layout)
 p1 <- 1; p2 <- 1
 
 ```
-
-
-
-We find:
-
-
-
-- January and June have fewer trips, whereas March and April are busier months. This tendency is observed for both *vendor\_ids*.
-
-
-
-- The weekend (Sat and Sun, plus Fri to an extend) have higher trip numbers during the early morning ours but lower ones in the morning between 5 and 10, which can most likely be attributed to the contrast between NYC business days and weekend night life. In addition, trip numbers drop on a Sunday evening/night.
-
-
-
-
-
-Finally, we will look at a simple overview visualisation of the *pickup/dropoff* latitudes and longitudes:
 
 
 
